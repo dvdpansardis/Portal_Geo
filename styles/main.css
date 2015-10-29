@@ -1,0 +1,37 @@
+.layout-top{
+	width: 100%;
+	height: 50px;
+}
+
+.layout-left{
+	width: 20%;
+	min-width: 100px;
+	height: 100%;
+}
+
+.layout-container{
+    display: inline-block;
+}
+
+.layout-rigth{
+	width: 75%;
+	min-width: 400px;
+	height: 100%;
+    display: inline-block;
+}
+
+.layout-buttom{
+	width: 100%;
+	height: 50px;
+}
+
+.map{
+    width: 100%;
+    min-width:600px;
+    height:100px;
+    min-height:600px;
+}
+
+.btns{
+    width: 120px;
+}

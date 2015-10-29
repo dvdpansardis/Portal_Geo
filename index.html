@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="appPortalGeo">
+	<head>
+        <title>
+            PortalGeo
+        </title>
+		<script src="scripts/libs/jquery-1.10.2.js" type="text/javascript" ></script>
+		<script src="scripts/libs/jquery-1.10.2.min.js" type="text/javascript" ></script>
+		<script src="scripts/libs/angular.js" type="text/javascript" ></script>
+        <script src="scripts/libs/bootstrap.js" type="text/javascript"></script>
+        <script src="scripts/libs/bootstrap.min.js" type="text/javascript"></script>
+		<script src="scripts/app.js" type="text/javascript" ></script>
+		<script src="scripts/controllers/appPortalGeoCtrl.js" type="text/javascript" ></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+    	<link rel="stylesheet" type="text/css" href="styles/main.css">
+    	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	</head>
+	<body>
+		<div ng-controller="appPortalGeoCtrl">
+            <div class="layout-top navbar navbar-inverse navbar-fixed-top">
+                <span class="navbar-brand">PortalGeo</span>
+            </div>
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Escolas</h1><h2>São José dos Campos</h2>
+                    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>                    
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a class="btns btn btn-primary btn-lg" href="#" role="button" ng-click='setSchools("municipal")'>Municipal &raquo;</a>
+                        <a class="btns btn btn-primary btn-lg" href="#" role="button" ng-click='setSchools("federal")'>Federal &raquo;</a>
+                        <a class="btns btn btn-primary btn-lg" href="#" role="button" ng-click='setSchools("particular")'>Particular &raquo;</a>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="mapPrincipal" class="map"></div>
+                    </div>
+                </div>
+                <hr>
+                <footer>
+                    <p>&copy; Desenvolvido por David Pansardis 2015</p>
+                </footer>
+            </div>
+		</div>
+	</body>
+</html>
