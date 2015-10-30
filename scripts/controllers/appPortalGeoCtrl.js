@@ -15,29 +15,12 @@
 
     $scope.getInformations = function (origin) {
 
-        var urlRequest = 'http://localhost:8080/portalgeo/assets/' + origin + '.json';
+        var urlRequest = 'http://127.0.0.1:8887//portalgeo/assets/' + origin + '_codificado.json';
         
         $http.get(urlRequest).success(function (data) {
 
-            for (var i = 0; i <= data.length; i++) {
-                var address = "";
-                var title = "Sem Nome";
-                if (typeof data[i].DE !== "undefined" || typeof data[i].DE !== "SN") {
-                    address += String(data[i].DE).trim() + ', ';
-                }
-                if (typeof data[i].BAIESC !== "undefined") {
-                    address += String(data[i].BAIESC).trim() + ', ';
-                }
-                if (typeof data[i].ENDESC !== "undefined") {
-                    address += String(data[i].ENDESC).trim() + ', ';
-                }
-                if (typeof data[i].NUMESC !== "undefined") {
-                    address += 'Nº ' + String(data[i].NUMESC).trim();
-                }
-                if (typeof data[i].NOMESC !== "undefined") {
-                    title = data[i].NOMESC;
-                }
-                $scope.getMarkerFromAddress(address, title);
+            for (var i = 0; i <= data.data.features.length; i++) {
+                $scope.newMarker(map, data.data.features[i].geometry.coordinates)
             }
 
         }).error(function (data, status) {
@@ -45,6 +28,16 @@
             console.log("Error object http get: " + status);
 
         });
+    };
+
+    $scope.newMarker = function (mapMain, coords) {
+        var newLatlng = new google.maps.LatLng(coords[1], coords[0]);
+        marker.push(new google.maps.Marker({
+
+            map: mapMain,
+            position: newLatlng
+
+        }));
     };
 
     $scope.setSchools = function (type) {
@@ -87,7 +80,6 @@ function geocodeAddress(geocoder, resultsMap, address, titleMarker) {
             alert('Geocode was not successful for the following reason: ' + status);
 
         }
-        sleep(0010);
     });
 
 }
